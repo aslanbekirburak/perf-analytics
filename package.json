@@ -7,11 +7,18 @@
     "express": "^4.17.1",
     "pg-promise": "^10.7.3"
   },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm start app.js"
+    "start": "node app.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "10.x"
+  }
 }
