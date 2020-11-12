@@ -6,7 +6,7 @@ app.use(express.json())
 app.use('/static', express.static('public'))
 
 var pgp = require('pg-promise')(/* options */)
-var db = pgp('postgres://postgres:12345@34.76.135.216:5432/league')
+var db = pgp('postgres://postgres:12345@34.76.181.123:5432/performance')
 
 const setResponseData = (data) => {
   const ttfbList=[]
