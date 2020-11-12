@@ -1,5 +1,5 @@
-window.onload = function() {
 const paintEntries = window.performance.getEntriesByType("paint")[0];
+window.onload = function() {
 const navigationEntries = performance.getEntriesByType("navigation")[0];
 //TTFB
 const ttfb = navigationEntries.responseStart - navigationEntries.requestStart;
