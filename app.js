@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 
 app.use(express.json())
-app.use('/static', express.static('public'))
+app.use('https://bba-performance-analytics.herokuapp.com/static', express.static('public'))
 
 var pgp = require('pg-promise')(/* options */)
 var db = pgp('postgres://postgres:12345@34.76.181.123:5432/performance')
@@ -46,5 +46,5 @@ app.post('/', function (req, res) {
   })
 
 app.listen((process.env.PORT || 3000), () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Example app listening at https://bba-performance-analytics.herokuapp.com`)
 })
