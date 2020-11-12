@@ -1,5 +1,7 @@
-const paintEntries = window.performance.getEntriesByType("paint")[0];
+
+
 window.onload = function() {
+const paintEntries = window.performance.getEntriesByType("paint")[0];
 const navigationEntries = performance.getEntriesByType("navigation")[0];
 //TTFB
 const ttfb = navigationEntries.responseStart - navigationEntries.requestStart;
@@ -11,6 +13,8 @@ const domLoad = navigationEntries.domComplete - navigationEntries.domContentLoad
 const windowLoadEvents = navigationEntries.loadEventStart - navigationEntries.loadEventEnd
 
 const siteName = window.location.href;
+// measure  ttfb ,fcp ,dom load, window load events
+
 
 const data = JSON.stringify({
   site: siteName,
