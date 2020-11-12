@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 app.post('/', function (req, res) {
   res.header("Access-Control-Allow-Origin", "*");
   const {ttfb,fcp,domload,windowLoadEvents} = req.body
-    db.none('INSERT INTO performance_metrics(ttfb,fcp,dom_load,window_load_events,time) VALUES(${ttfb},${fcp},${dom_load},${window_load_events},${time})',{ttfb,fcp:0,dom_load:domload,window_load_events:windowLoadEvents,time:new Date()})
+    db.none('INSERT INTO performance_metrics(ttfb,fcp,dom_load,window_load_events,time) VALUES(${ttfb},${fcp},${dom_load},${window_load_events},${time})',{ttfb,fcp,dom_load:domload,window_load_events:windowLoadEvents,time:new Date()})
     .then(function (data) {
         res.send(data)
       })

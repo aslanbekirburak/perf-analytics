@@ -1,39 +1,26 @@
+window.onload = function() {
+const paintEntries = window.performance.getEntriesByType("paint")[0];
+const navigationEntries = performance.getEntriesByType("navigation")[0];
 //TTFB
-const navigationEntries = window.performance.getEntriesByType("navigation")[0];
 const ttfb = navigationEntries.responseStart - navigationEntries.requestStart;
-// FCP
-const paintEntries = window.performance.getEntriesByType("paint");
 
 // DOM lOAD (Check startTime)//domComplete - domLoading; olabilir
-const domLoad = navigationEntries.domContentLoadedEventEnd - navigationEntries.startTime;
+const domLoad = navigationEntries.domComplete - navigationEntries.domContentLoadedEventStart;
 
 // WINDOW LOAD EVENTS
-const windowLoadEvents = navigationEntries.loadEventEnd - navigationEntries.startTime
-
-const resourceListEntries = window.performance.getEntriesByType("resource");
-resourceListEntries.forEach(resource => {
-  if (resource.initiatorType == 'img') {
-    console.info(`Time taken to load ${resource.name}: `, resource.responseEnd - resource.startTime);
-  }
-});
-
-console.log("navigationEntries", navigationEntries)
-console.log("ttfb",ttfb)
-console.log("domLoad",domLoad)
-console.log("windowLoadEvents",windowLoadEvents)
+const windowLoadEvents = navigationEntries.loadEventStart - navigationEntries.loadEventEnd
 
 const siteName = window.location.href;
-// measure  ttfb ,fcp ,dom load, window load events
-
 
 const data = JSON.stringify({
   site: siteName,
   ttfb: ttfb,
-  fcp: "measureFcp()",
+  fcp: paintEntries && paintEntries.startTime,
   domload: domLoad,
   windowLoadEvents: windowLoadEvents
   })
-
+  console.log("data",data)
+  // https://bba-performance-analytics.herokuapp.com
   fetch("https://bba-performance-analytics.herokuapp.com", {
     method: "POST",
     headers: {
@@ -43,5 +30,7 @@ const data = JSON.stringify({
   }).then(res => {
     console.log("Request complete! response:", res);
   });
+
+}
 
 // send data to POST perfanalytics-api/collect { site: window.location.href, data }
