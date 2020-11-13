@@ -8,7 +8,7 @@ app.use('/static', express.static('public'))
 app.use(cors())
 
 var pgp = require('pg-promise')(/* options */)
-var db = pgp('postgres://postgres:12345@34.76.181.123:5432/performance')
+var db = pgp('postgres://postgres:12345@34.65.238.164:5432/performance')
 
 const setResponseData = (data) => {
   const ttfbList=[]
