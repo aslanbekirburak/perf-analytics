@@ -24,8 +24,7 @@ const data = JSON.stringify({
   windowLoadEvents: windowLoadEvents
   })
   console.log("data",data)
-  //https://bba-performance-analytics.herokuapp.com
-  fetch("http://localhost:3000", {
+  fetch("https://bba-performance-analytics.herokuapp.com", {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
