@@ -1,6 +1,5 @@
-
-
 window.onload = function() {
+// FCP
 const paintEntries = window.performance.getEntriesByType("paint")[1];
 const navigationEntries = performance.getEntriesByType("navigation")[0];
 
@@ -16,8 +15,6 @@ const domLoad = navigationEntries.domComplete - navigationEntries.domContentLoad
 const windowLoadEvents = navigationEntries.loadEventStart - navigationEntries.loadEventEnd
 
 const siteName = window.location.href;
-// measure  ttfb ,fcp ,dom load, window load events
-
 
 const data = JSON.stringify({
   site: siteName,
@@ -27,7 +24,8 @@ const data = JSON.stringify({
   windowLoadEvents: windowLoadEvents
   })
   console.log("data",data)
-  fetch("https://bba-performance-analytics.herokuapp.com", {
+  //https://bba-performance-analytics.herokuapp.com
+  fetch("http://localhost:3000", {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -38,5 +36,3 @@ const data = JSON.stringify({
   });
 
 }
-
-// send data to POST perfanalytics-api/collect { site: window.location.href, data }
