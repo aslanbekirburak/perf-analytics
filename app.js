@@ -11,7 +11,7 @@ var pgp = require('pg-promise')(/* options */)
 var db = pgp('postgres://postgres:12345@34.65.238.164:5432/performance')
 
 const setResponseData = (data) => {
-  const ttfbList=[]
+    const ttfbList=[]
     const fcpList = []
     const domLoadList = []
     const windowLoadList = []
@@ -47,6 +47,6 @@ app.post('/', function (req, res) {
       })
   })
 
-app.listen((process.env.PORT || 3000), () => {
+app.listen((process.env.PORT || port), () => {
   console.log(`Example app listening at https://bba-performance-analytics.herokuapp.com`)
 })
