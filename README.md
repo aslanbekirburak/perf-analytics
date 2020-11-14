@@ -12,3 +12,4 @@ for demonstrate the mesauring
 
   - https://bba-performance-analytics.herokuapp.com/static/trendyol.html open this page which is dummy page for test
   - https://bba-perf-dashboard.netlify.app/ open this page which shows dashboard of the performance metrics
+  - Refresh each page and you see graphics get new point
