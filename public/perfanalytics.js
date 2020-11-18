@@ -8,7 +8,7 @@ console.log("paintEntries", paintEntries)
 //TTFB
 const ttfb = navigationEntries.responseStart - navigationEntries.requestStart;
 
-// DOM lOAD (Check startTime)//domComplete - domLoading; olabilir
+// DOM lOAD (Check startTime)
 const domLoad = navigationEntries.domComplete - navigationEntries.domContentLoadedEventStart;
 
 // WINDOW LOAD EVENTS
