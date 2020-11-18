@@ -6,8 +6,10 @@
   - In my test scenario Fcp gets 0 because there is no media to measure
   - On React side i used scss for styling especially for responsiveness
   - For api connection i use express.js
-
+  - Demo page has <script src="https://bba-performance-analytics.herokuapp.com/static/perfanalytics.js"></script>
+for demonstrate the mesauring
 ### How to test System ?
 
   - https://bba-performance-analytics.herokuapp.com/static/trendyol.html open this page which is dummy page for test
   - https://bba-perf-dashboard.netlify.app/ open this page which shows dashboard of the performance metrics
+  - Refresh each page and you see graphics get new point
